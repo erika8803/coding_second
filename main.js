@@ -24,4 +24,19 @@ $(function(){
     $('#header').removeClass('open');
   });
 
+
+
+  /*-------------------------------------------
+　　スライダー処理
+  -------------------------------------------*/
+  // swiperオブジェクト呼び出し
+  var mySwiper = new Swiper('.swiper-container', {
+    loop: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    speed: 1000,
+    fade: true,
+    cssEase: 'linear'
+  })
 });
+

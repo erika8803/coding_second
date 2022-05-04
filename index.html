@@ -8,34 +8,84 @@
     <link rel="shortcut icon" href="img/favicon.ico" />
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
+    <!-- swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css"
+    />
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <header id="header">
-      <h1 class="top-title>">Cresta Design</h1>
+      <div class="header-nav">
+        <h1 class="top-title>">Cresta Design</h1>
 
-      <!-- 🍔メニュー -->
-      <nav id="nav">
-        <ul class="nav-menu">
-          <li><a href="#">Concept</a></li>
-          <li><a href="#">Service</a></li>
-          <li><a href="#">Works</a></li>
-          <li><a href="contact">CONTACT</a></li>
-        </ul>
-      </nav>
+        <!-- 🍔メニュー -->
+        <nav id="nav">
+          <ul class="nav-menu">
+            <li><a href="#">Concept</a></li>
+            <li><a href="#">Service</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="contact">CONTACT</a></li>
+          </ul>
+        </nav>
 
-      <!-- 🍔メニューボタン　三本線を作る -->
-      <div class="hamburger-btn">
-        <span class="btn-line"></span>
-        <span class="btn-line"></span>
-        <span class="btn-line"></span>
+        <!-- 🍔メニューボタン　三本線を作る -->
+        <div class="hamburger-btn">
+          <span class="btn-line"></span>
+          <span class="btn-line"></span>
+          <span class="btn-line"></span>
+        </div>
+
+        <!-- 🍔メニューエリア -->
+        <div id="hamburger-btn-area"></div>
       </div>
-
-      <!-- 🍔メニューエリア -->
-      <div id="hamburger-btn-area"></div>
     </header>
-    <main></main>
+    <main>
+      <section id="page-header">
+        <!-- swiperエリア -->
+        <div class="swiper-containe">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./img/fv-bgi_01@2x.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./img/fv-bgi_02@2x.jpg" alt="" />
+            </div>
+            <div c;ass="swiper-slide">
+              <img src="./img/fv-bgi_03@2x.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="page-header-info">
+          <p class="page-header-title">Design for Smile.</p>
+          <p class="page-header-text">快適なオフィスをデザインする</p>
+        </div>
+      </section>
+      <!-- CONSEPTエリア -->
+      <section class="section-content">
+        <h2 class="section-title">CONSEPT</h2>
+        <div class="section-inner">
+          <p class="inner-title">
+            ”働きたくなる空間”をデザインすることで 人々をしあわせにする
+          </p>
+          <div class="inner-content">
+            <p class="inner-content-text">
+              私たちは、オフィスに特化した空間デザイン専門としております。
+              その理由は、「働きたくなる空間で仕事ができれば多くの人を幸せにできるのではないか」
+              と考えるためです。そんな想いの株式会社Cresta
+              Designだからこそできる空間デザインを提供させていただきます。
+            </p>
+            <img src="img/concept-image@2x.jpg" />
+          </div>
+        </div>
+        <div class="section-bottom">Our Consept</div>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
