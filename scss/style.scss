@@ -1,3 +1,7 @@
+
+/*-------------------------------------------
+共通処理
+-------------------------------------------*/
 body {
     line-height: 1.7;
     font-size: 0.9rem;
@@ -13,13 +17,53 @@ img {
     width: 100%;
     vertical-align: bottom;
 }
-
+p {
+    margin: 0;
+}
 $mobile-size: 768px;
 @mixin mobile {
     @media (max-width: $mobile-size) {
         @content;
     }
 }
+.section-title {
+    max-width: 1000px;
+    color: #282F35;
+    font-size: 4rem;
+    font-style: italic;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+
+    @include mobile {
+        font-size: 2.5rem;
+    }
+}
+.section-title::after {
+    content: "";
+    display: inline-block;
+    background-color: #282F35;
+    width: 200px;
+    height: 5px;
+    margin-left: 30px;
+    vertical-align: middle;
+
+    @include mobile {
+        width: 100px;
+    }
+}
+.section-bottom {
+    text-align: right;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 6rem;
+    opacity: .05;
+
+    @include mobile {
+        font-size: 3rem;
+        padding-right: 20px;
+    }
+}
+
 /*-------------------------------------------
 ヘッダー
 -------------------------------------------*/
@@ -29,9 +73,9 @@ $mobile-size: 768px;
     left: 0;
     color: white;
     padding: 0 2em;
-    z-index: 1;
     width: 100%;
     z-index: 15;
+    box-sizing: border-box;
     .header-nav {
         display: flex;
         justify-content: space-between;
@@ -41,9 +85,14 @@ $mobile-size: 768px;
     }
     .top-title {
         font-size: 2.6rem;
-
     }
-
+    .fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 20;
+    }
 
     @include mobile {
         padding: 0 1em;
@@ -80,7 +129,6 @@ $mobile-size: 768px;
         justify-content: center;
         align-items: center;
     }
-
     // 🍔メニュー 三本線の設定
     .hamburger-btn {
         top: 25px;
@@ -161,74 +209,218 @@ $mobile-size: 768px;
 メイン/トップ画像
 -------------------------------------------*/
 #page-header {
-    height: 100vh;
     min-height: 550px;
     position: relative;
-    // background-image: url(img/fv-bgi_01@2x.jpg);
-    // background-size: cover;
-    // background-position: center;
     color: #fff;
+
+    img {
+        height: 100vh;
+        object-fit: cover;
+    }
     
     .page-header-info {
         font-size: 5rem;
         position: absolute;
-        bottom: 180px;
+        bottom: 170px;
         left: 120px;
         font-weight: bold;
-        z-index: 15;
+        z-index: 1;
+
+        @include mobile {
+            font-size: 9.8vw;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            white-space: nowrap;
+        }
     }
     .page-header-title {
         margin: 0;
+        @include mobile {
+            font-size: 3rem;
+        }
     }
     .page-header-text {
-        font-size: 2rem;
+        font-size: 2.4rem;
         text-align: center;
+        @include mobile {
+            font-size: 2rem;
+        }
+    }
+    .line-gap {
+        display: none;
+        @include mobile {
+            display: block;
+        }
     }
 }
-
-
-
 
 /*-------------------------------------------
-メイン：CONSEPT
+メイン：CONSEPTエリア
 -------------------------------------------*/
 .section-content {
-    padding: 100px 0 70px;
+    padding: 5em 0 2em;
 
-    .section-title {
+    .section-inner {
+        max-width: 1000;
+        margin: 0 auto;
+        padding: 0 50px;
+
+        @include mobile {
+            padding: 0 20px;
+        }
+    }
+    .inner-title {
+        max-width: 660px;
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0 auto;
+        text-align: center;
+
+        @include mobile {
+            font-size: 1.5em;
+        }
+    }
+
+    .inner-content {
+        display: flex;
+        align-items: center;
         max-width: 1000px;
-        color: #282F35;
-        font-size: 4rem;
-        font-style: italic;
-        margin: 0 auto 80px;
-        padding: 0 20px;
+        font-weight: bold;
+        margin: 0 auto;
+        padding: 2em 0;
+        justify-content: space-between;
+
+        @include mobile {
+            display: block;
+        }
+    }
+    .inner-content-text {
+        max-width: 440px;
+        line-height: 1.87;
+        font-weight: bold;
+        font-size: 16px;
+        padding-bottom: 30px;
+    }
+    .inner-content-image {
+        width: 44%;
+        margin-left: 20px;
+        @include mobile {
+            width: 100%;        
+            margin-left: 0;
+        }
+    }
+
+}
+
+/*-------------------------------------------
+メイン：Worksエリア
+-------------------------------------------*/
+.section-works {
+    background-image: url(img/works-bgi@2x.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 5em 0;
+    .section-title {
+        text-align: right;
+        color: #fff;
+        margin-bottom: 100px;
     }
     .section-title::after {
-        content: "";
-        display: inline-block;
-        background-color: #282F35;
-        width: 200px;
-        height: 5px;
-        margin-left: 30px;
-        vertical-align: middle;
+        background-color: #fff;
     }
+    .news-area {
+        padding: 0 20em;
+        display: grid;
+        gap: 26px;
+        grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+        @include mobile {
+            margin: 2em;
+            padding: 0;
+            grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+        }
+    }
+    .news-content {
+        background-color: #fff;
+        width: 100%;
+    }
+    .news-text {
+        padding: 2em;
+    }
+    .btn-view-more {
+        display: block;
+        width: 235px;
+        line-height: 60px;
+        margin: 70px auto 50px;
+        background-color: #f7d43f;
+        box-shadow: 0 0 6px #1b1310;
+        border-radius: 30px;
+        text-align: center;
+        color: #171717;
+        font-weight: bold;
+        text-decoration: none;
+        transition: .3s;
+    }
+    .section-bottom {
+        color: #fff;
+        text-align: left;
+        opacity: 0.1;
+        @include mobile {
+            padding-left: 0.5em;
+        }
+    }
+}
+/*-------------------------------------------
+メイン：Serviceエリア
+-------------------------------------------*/
+.section-service {
+    position: absolute; 
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2em 0;
+    font-size: 3rem;
+    .service-area {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
 
+        @include mobile {
+            grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+        }
+    }
+    .img01 .service-title {
+        color: white;
+        position: absolute;
+        bottom: 40%;
+        top: 50%;
+        left: 10%;
+        font-weight: bold;
+        z-index: 1;
+    
+        @include mobile {
+            font-size: 9.8vw;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            white-space: nowrap;
+        }
+    }
+    .img02 .service-title {
+        color: white;
+        position: absolute;
+        top: 50%;
+        bottom: 40%;
+        left: 44%;
+        font-weight: bold;
+        z-index: 1;
+    }
+    .img03 .service-title {
+        color: white;
+        position: absolute;
+        top: 50%;
+        bottom: 40%;
+        left: 80%;
+        font-weight: bold;
+        z-index: 1;
+    }
 }
-.section-inner {
-    max-width: 1000;
-    margin: 0 auto;
-    padding:  50px;
-}
-.inner-title {
-    max-width: 660px;
-    font-size: 2rem;
-    line-height: 1.87;
-    font-weight: bold;
-    margin: 0 auto;
-}
-.section-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    font-size: 9rem;
-    opacity: .05;
-}
+

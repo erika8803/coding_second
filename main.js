@@ -33,10 +33,24 @@ $(function(){
   var mySwiper = new Swiper('.swiper-container', {
     loop: true,
     autoplay: true,
+    // disableOnInteract  ion: true,
     autoplaySpeed: 2000,
     speed: 1000,
     fade: true,
-    cssEase: 'linear'
-  })
-});
+    // transform:unset!important,
+    // cssEase: 'linear',
+  });
 
+
+  /*-------------------------------------------
+　　メニュー固定設定
+  -------------------------------------------*/
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $('#header').addClass('fixed');
+    } else {
+      $('#header').removeClass('fixed');
+    }
+  });
+
+});
