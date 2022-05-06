@@ -419,18 +419,22 @@ $mobile-size: 768px;
   font-size: 3rem;
 
   .service-area {
+    background-color: #000;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
 
+.service-content {
+  &:hover {
+
+    opacity: 0.5;
+    z-index: 10;
+  }
+}
     @include mobile {
       grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
-    a:hover {
-      background-color: #000;
-      z-index:15;
-    }
- 
   }
+
   .img01 .service-title {
     color: white;
     position: absolute;

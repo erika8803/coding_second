@@ -388,17 +388,18 @@ p {
   font-size: 3rem;
 }
 .section-service .service-area {
+  background-color: #000;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+}
+.section-service .service-area .service-content:hover {
+  opacity: 0.5;
+  z-index: 10;
 }
 @media (max-width: 768px) {
   .section-service .service-area {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
-}
-.section-service .service-area a:hover {
-  background-color: #000;
-  z-index: 15;
 }
 .section-service .img01 .service-title {
   color: white;
