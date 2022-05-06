@@ -396,12 +396,7 @@ p {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 }
-@media (max-width: 768px) {
-  .section-service .service-area {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  }
-}
-.section-service a:hover {
+.section-service .service-area a:hover {
   background-color: #000;
   z-index: 15;
 }

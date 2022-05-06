@@ -425,17 +425,12 @@ $mobile-size: 768px;
     @include mobile {
       grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
-      @include mobile {
-        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-      }
-    }
-
     a:hover {
       background-color: #000;
       z-index:15;
     }
  
-
+  }
   .img01 .service-title {
     color: white;
     position: absolute;
