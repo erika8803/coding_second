@@ -5,6 +5,7 @@
 body {
   line-height: 1.7;
   font-size: 0.9rem;
+  width: 100%;
 }
 
 a {
@@ -109,10 +110,10 @@ p {
 }
 #header .fixed {
   position: fixed;
-  top: 0;
-  left: 0;
+  background-color: #282f35;
+  padding: 30px;
   width: 100%;
-  z-index: 20;
+  transition: 0.3s;
 }
 @media (max-width: 768px) {
   #header {
@@ -395,8 +396,14 @@ p {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 }
-.section-service .service-area:hover {
+@media (max-width: 768px) {
+  .section-service .service-area {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+}
+.section-service a:hover {
   background-color: #000;
+  z-index: 15;
 }
 .section-service .img01 .service-title {
   color: white;
@@ -409,11 +416,8 @@ p {
 }
 @media (max-width: 768px) {
   .section-service .img01 .service-title {
-    font-size: 9.8vw;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
+    top: 25%;
+    left: 20%;
   }
 }
 .section-service .img02 .service-title {
@@ -425,6 +429,11 @@ p {
   font-weight: bold;
   z-index: 1;
 }
+@media (max-width: 768px) {
+  .section-service .img02 .service-title {
+    left: 20%;
+  }
+}
 .section-service .img03 .service-title {
   color: white;
   position: absolute;
@@ -433,6 +442,12 @@ p {
   left: 80%;
   font-weight: bold;
   z-index: 1;
+}
+@media (max-width: 768px) {
+  .section-service .img03 .service-title {
+    top: 75%;
+    left: 20%;
+  }
 }
 
 /*-------------------------------------------

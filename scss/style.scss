@@ -4,6 +4,7 @@
 body {
   line-height: 1.7;
   font-size: 0.9rem;
+  width: 100%;
 }
 
 a {
@@ -115,12 +116,11 @@ $mobile-size: 768px;
 
   .fixed {
     position: fixed;
-    top: 0;
-    left: 0;
+    background-color: #282f35;
+    padding: 30px;
     width: 100%;
-    z-index: 20;
+    transition: 0.3s;
   }
-
   @include mobile {
     padding: 0 1em;
   }
@@ -425,11 +425,16 @@ $mobile-size: 768px;
     @include mobile {
       grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
-  }
+      @include mobile {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+      }
+    }
 
-  .service-area:hover {
+    a:hover {
       background-color: #000;
-  }
+      z-index:15;
+    }
+ 
 
   .img01 .service-title {
     color: white;
@@ -441,11 +446,8 @@ $mobile-size: 768px;
     z-index: 1;
 
     @include mobile {
-      font-size: 9.8vw;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
+      top: 25%;
+      left: 20%;
     }
   }
 
@@ -457,6 +459,10 @@ $mobile-size: 768px;
     left: 44%;
     font-weight: bold;
     z-index: 1;
+
+    @include mobile {
+      left: 20%;
+    }
   }
 
   .img03 .service-title {
@@ -467,7 +473,13 @@ $mobile-size: 768px;
     left: 80%;
     font-weight: bold;
     z-index: 1;
+
+    @include mobile {
+      top: 75%;
+      left: 20%;
+    }
   }
+
 }
 
 /*-------------------------------------------
@@ -492,15 +504,18 @@ $mobile-size: 768px;
     text-align: center;
     font-size: 20px;
   }
+
   .btn {
     margin: 40px auto 50px;
   }
+
   .section-bottom {
     color: #fff;
     text-align: left;
     opacity: 0.1;
   }
 }
+
 /*-------------------------------------------
 フッター
 -------------------------------------------*/
