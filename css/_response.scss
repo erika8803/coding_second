@@ -1,0 +1,184 @@
+$mobile-size: 768px;
+$tablet-size: 900px;
+
+@mixin mobile {
+  @media (max-width: $mobile-size) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet-size) {
+    @content;
+  }
+}
+
+/*-------------------------------------------
+共通処理
+-------------------------------------------*/
+.section-title {
+    font-size: 2.5rem;
+}
+.section-title::after {
+    width: 100px;
+}
+
+.section-bottom {
+    font-size: 3rem;
+    padding-right: 20px;
+}
+/*-------------------------------------------
+ハンバーガーメニュー
+-------------------------------------------*/
+@include mobile {
+  #header {
+    padding: 0 1em;
+  }
+
+  #nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #333;
+  }
+
+  .nav-menu {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // 🍔メニュー 三本線の設定
+  .hamburger-btn {
+    top: 25px;
+    width: 30px;
+    height: 30px;
+    right: 35px;
+    position: fixed;
+    cursor: pointer;
+    z-index: 20;
+  }
+  span {
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+  }
+  span:nth-child(1) {
+    top: 4px;
+  }
+  span:nth-child(2) {
+    top: 14px;
+  }
+  span:nth-child(3) {
+    bottom: 4px;
+  }
+
+  // 🍔メニュークリック時 三本線をバツにする。
+  .open {
+    #nav {
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s;
+    }
+    .btn-line {
+        background-color: #fff;
+    }
+    span:nth-child(1) {
+        transform: translateY(10px) rotate(-315deg); // rotate でななめに設定
+    }
+    span:nth-child(2) {
+        opacity: 0;
+    }
+    span:nth-child(3) {
+        transform: translateY(-10px) rotate(315deg); // rotate でななめに設定
+    }
+  }
+
+  // 🍔メニューを押下後、閉じることのできるクリックエリアを指定
+  #hamburger-btn-area {
+    transition: all 0.5s;
+  }
+
+  .open #hamburger-btn-area {
+    background-color: #000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    opacity: 0.8;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  // 🍔を押下後、メニューを表示する。
+  .open #nav {
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s;
+    display: block;
+    z-index: 15;
+  }
+
+  /*-------------------------------------------
+  メイン_トップ画像
+  -------------------------------------------*/
+  .page-header-info {
+    font-size: 9.8vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .page-header-title {
+    font-size: 3rem;
+  }
+  .page-header-text {
+    font-size: 2rem;
+  }
+  .line-gap {
+    display: block;
+  }
+
+  /*-------------------------------------------
+  メイン：conseptエリア
+  -------------------------------------------*/
+  .section-inner {
+      padding: 0 20px;
+  }
+  .inner-title {
+      font-size: 1.5em;
+  }
+  .inner-content {
+      display: block;
+  }
+  .inner-content-image {
+      width: 100%;
+      margin-left: 0;
+  }
+
+}
+
+@include tablet {
+  .page-header-info {
+    position: absolute;
+    font-size: 9.8vw;
+    bottom: 100px;
+    left: 120px;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .page-header-title {
+    font-size: 3rem;
+  }
+  .page-header-text {
+    font-size: 2rem;
+  }
+}

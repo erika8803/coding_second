@@ -1,3 +1,7 @@
+@import './response.scss';
+@import './header.scss';
+@import './footer.scss';
+
 /*-------------------------------------------
 共通処理
 -------------------------------------------*/
@@ -47,10 +51,6 @@ $tablet-size: 900px;
   font-style: italic;
   margin: 0 auto 80px;
   padding: 0 20px;
-
-  @include mobile {
-    font-size: 2.5rem;
-  }
 }
 
 .section-title::after {
@@ -61,10 +61,6 @@ $tablet-size: 900px;
   height: 5px;
   margin-left: 30px;
   vertical-align: middle;
-
-  @include mobile {
-    width: 100px;
-  }
 }
 
 .section-bottom {
@@ -73,11 +69,6 @@ $tablet-size: 900px;
   margin: 0 auto;
   font-size: 6rem;
   opacity: 0.05;
-
-  @include mobile {
-    font-size: 3rem;
-    padding-right: 20px;
-  }
 }
 
 .btn {
@@ -97,163 +88,6 @@ $tablet-size: 900px;
   transition: 0.3s;
 }
 
-/*-------------------------------------------
-ヘッダー
--------------------------------------------*/
-#header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: white;
-  padding: 0 2em;
-  width: 100%;
-  z-index: 15;
-  box-sizing: border-box;
-  background-color: #000;
-
-  .header-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .top-title {
-    font-size: 2.6rem;
-  }
-
-  .fixed {
-    position: fixed;
-    background-color: #282f35;
-    padding: 30px;
-    width: 100%;
-    transition: 0.3s;
-  }
-
-  @include mobile {
-    padding: 0 1em;
-  }
-
-  a {
-    color: white;
-  }
-
-  nav {
-    margin-left: auto;
-  }
-
-  .nav-menu {
-    display: flex;
-  }
-
-  li {
-    padding: 1em;
-    font-size: 16px;
-  }
-}
-
-@include mobile {
-  #nav {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #333;
-  }
-
-  .nav-menu {
-    height: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  // 🍔メニュー 三本線の設定
-  .hamburger-btn {
-    top: 25px;
-    width: 30px;
-    height: 30px;
-    right: 35px;
-    position: fixed;
-    cursor: pointer;
-    z-index: 20;
-
-    span {
-      position: absolute;
-      left: 0;
-      width: 30px;
-      height: 2px;
-      background-color: #fff;
-    }
-
-    span:nth-child(1) {
-      top: 4px;
-    }
-
-    span:nth-child(2) {
-      top: 14px;
-    }
-
-    span:nth-child(3) {
-      bottom: 4px;
-    }
-  }
-
-  // 🍔メニュークリック時 三本線をバツにする。
-  .open {
-    #nav {
-      left: 0;
-      opacity: 1;
-      transition: all 0.5s;
-    }
-
-    .btn-line {
-      background-color: #fff;
-    }
-
-    span:nth-child(1) {
-      transform: translateY(10px) rotate(-315deg); // rotate でななめに設定
-    }
-
-    span:nth-child(2) {
-      opacity: 0;
-    }
-
-    span:nth-child(3) {
-      transform: translateY(-10px) rotate(315deg); // rotate でななめに設定
-    }
-  }
-
-  // 🍔メニューを押下後、閉じることのできるクリックエリアを指定
-  #hamburger-btn-area {
-    transition: all 0.5s;
-  }
-
-  .open #hamburger-btn-area {
-    background-color: #000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: fixed;
-    opacity: 0.8;
-    z-index: 10;
-    cursor: pointer;
-  }
-
-  // 🍔メニューを押下後、メニューを表示する。
-  .open #nav {
-    left: 0;
-    opacity: 1;
-    transition: all 0.5s;
-    display: block;
-    z-index: 15;
-  }
-}
 
 /*-------------------------------------------
 メイン/トップ画像
@@ -262,53 +96,28 @@ $tablet-size: 900px;
   min-height: 550px;
   position: relative;
   color: #fff;
-
   img {
     height: 100vh;
     object-fit: cover;
   }
-
-  .page-header-info {
-    font-size: 5rem;
-    position: absolute;
-    bottom: 170px;
-    left: 120px;
-    font-weight: bold;
-    z-index: 1;
-
-    @include mobile {
-      font-size: 9.8vw;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
-    }
-  }
-
-  .page-header-title {
-    margin: 0;
-
-    @include mobile {
-      font-size: 3rem;
-    }
-  }
-
-  .page-header-text {
-    font-size: 2.4rem;
-    text-align: center;
-
-    @include mobile {
-      font-size: 2rem;
-    }
-  }
-
-  .line-gap {
-    display: none;
-
-    @include mobile {
-      display: block;
-    }
-  }
+}
+.page-header-info {
+  font-size: 5rem;
+  position: absolute;
+  bottom: 170px;
+  left: 120px;
+  font-weight: bold;
+  z-index: 1;
+}
+.page-header-title {
+  margin: 0;
+}
+.page-header-text {
+  font-size: 2.4rem;
+  text-align: center;
+}
+.line-gap {
+  display: none;
 }
 
 /*-------------------------------------------
@@ -316,62 +125,40 @@ $tablet-size: 900px;
 -------------------------------------------*/
 .section-content {
   padding: 5em 0 2em;
-
-  .section-inner {
-    max-width: 1000;
-    margin: 0 auto;
-    padding: 0 50px;
-
-    @include mobile {
-      padding: 0 20px;
-    }
-  }
-
-  .inner-title {
-    max-width: 660px;
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 0 auto;
-    text-align: center;
-
-    @include mobile {
-      font-size: 1.5em;
-    }
-  }
-
-  .inner-content {
-    display: flex;
-    align-items: center;
-    max-width: 1000px;
-    font-weight: bold;
-    margin: 0 auto;
-    padding: 2em 0;
-    justify-content: space-between;
-
-    @include mobile {
-      display: block;
-    }
-  }
-
-  .inner-content-text {
-    max-width: 440px;
-    line-height: 1.87;
-    font-weight: bold;
-    font-size: 16px;
-    padding-bottom: 30px;
-  }
-
-  .inner-content-image {
-    width: 44%;
-    margin-left: 20px;
-
-    @include mobile {
-      width: 100%;
-      margin-left: 0;
-    }
-  }
+}
+.section-inner {
+  max-width: 1000;
+  margin: 0 auto;
+  padding: 0 50px;
 }
 
+.inner-title {
+  max-width: 660px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+}
+.inner-content {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 2em 0;
+  justify-content: space-between;
+}
+.inner-content-text {
+  max-width: 440px;
+  line-height: 1.87;
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 30px;
+}
+.inner-content-image {
+  width: 44%;
+  margin-left: 20px;
+}
 /*-------------------------------------------
 メイン：Worksエリア
 -------------------------------------------*/
@@ -519,12 +306,4 @@ $tablet-size: 900px;
     text-align: left;
     opacity: 0.1;
   }
-}
-
-/*-------------------------------------------
-フッター
--------------------------------------------*/
-.footer-text {
-  padding: 2em;
-  text-align: center;
 }
