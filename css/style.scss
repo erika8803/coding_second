@@ -26,9 +26,16 @@ p {
 }
 
 $mobile-size: 768px;
+$tablet-size: 900px;
 
 @mixin mobile {
   @media (max-width: $mobile-size) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet-size) {
     @content;
   }
 }
@@ -79,6 +86,7 @@ $mobile-size: 768px;
   line-height: 60px;
   margin: 70px auto 50px;
   background-color: #f7d43f;
+  background-color: #f7d43f;
   box-shadow: 0 0 6px #1b1310;
   border-radius: 30px;
   text-align: center;
@@ -101,6 +109,7 @@ $mobile-size: 768px;
   width: 100%;
   z-index: 15;
   box-sizing: border-box;
+  background-color: #000;
 
   .header-nav {
     display: flex;
@@ -121,6 +130,7 @@ $mobile-size: 768px;
     width: 100%;
     transition: 0.3s;
   }
+
   @include mobile {
     padding: 0 1em;
   }
@@ -302,7 +312,7 @@ $mobile-size: 768px;
 }
 
 /*-------------------------------------------
-メイン：CONSEPTエリア
+メイン：conseptエリア
 -------------------------------------------*/
 .section-content {
   padding: 5em 0 2em;
@@ -366,14 +376,15 @@ $mobile-size: 768px;
 メイン：Worksエリア
 -------------------------------------------*/
 .section-works {
-  background-image: url(img/works-bgi@2x.jpg);
+  background-image: url(../img/works-bgi@2x.jpg);
   background-size: cover;
   background-position: center;
+  padding: 5em 0 2em;
 
   .section-title {
     text-align: right;
     color: #fff;
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
   }
 
   .section-title::after {
@@ -381,10 +392,10 @@ $mobile-size: 768px;
   }
 
   .news-area {
-    padding: 0 27em;
+    padding: 0 10%;
     display: grid;
     gap: 26px;
-    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    grid-template-columns: repeat(3, 1fr);
 
     @include mobile {
       margin: 2em;
@@ -413,80 +424,75 @@ $mobile-size: 768px;
 メイン：Serviceエリア
 -------------------------------------------*/
 .section-service {
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 3rem;
-
+  padding-top: 3em; 
   .service-area {
-    background-color: #000;
+    background-color: #fff;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
 
-.service-content {
-  &:hover {
+    .service-content {
+      &:hover {
+        opacity: 0.5;
+        z-index: 1;
+      }
+    }
+  }
 
-    opacity: 0.5;
-    z-index: 10;
+  .service-list {
+    display: flex;
+    padding: 0;
+
+    @include tablet {
+      display: block;
+    }
+    .service-item {
+      width: 33.3%;
+      @include tablet {
+        width: 100%;
+        margin: 1em 0;
+      }
+      
+    
+      a {
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        line-height: 320px;
+        font-size: 4rem;
+        font-weight: bold;
+        font-style: italic;
+        transition: 0.3s;
+      }
+      a:hover {
+        background-color: rgba(40, 47, 53, 0.7);
+        transition: 0.3s;
+      }
+    }
+      .service_1 {
+        background-image: url(../img/service-img01@2x.jpg);
+      }
+      .service_2 {
+        background-image: url(../img/service-img02@2x.jpg);
+      }
+      .service_3 {
+        background-image: url(../img/service-img03@2x.jpg);
+      }
   }
 }
-    @include mobile {
-      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    }
-  }
 
-  .img01 .service-title {
-    color: white;
-    position: absolute;
-    bottom: 40%;
-    top: 50%;
-    left: 10%;
-    font-weight: bold;
-    z-index: 1;
+  
 
-    @include mobile {
-      top: 25%;
-      left: 20%;
-    }
-  }
 
-  .img02 .service-title {
-    color: white;
-    position: absolute;
-    top: 50%;
-    bottom: 40%;
-    left: 44%;
-    font-weight: bold;
-    z-index: 1;
-
-    @include mobile {
-      left: 20%;
-    }
-  }
-
-  .img03 .service-title {
-    color: white;
-    position: absolute;
-    top: 50%;
-    bottom: 40%;
-    left: 80%;
-    font-weight: bold;
-    z-index: 1;
-
-    @include mobile {
-      top: 75%;
-      left: 20%;
-    }
-  }
-
-}
 
 /*-------------------------------------------
 メイン：Contactエリア
 -------------------------------------------*/
 .section-contact {
-  background-image: url(img/contact-bgi@2x.jpg);
+  background-image: url(../img/contact-bgi@2x.jpg);
   padding: 2em;
+  padding: 5em 0 2em;
 
   .section-title {
     text-align: right;

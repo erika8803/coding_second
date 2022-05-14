@@ -75,6 +75,7 @@ p {
   line-height: 60px;
   margin: 70px auto 50px;
   background-color: #f7d43f;
+  background-color: #f7d43f;
   box-shadow: 0 0 6px #1b1310;
   border-radius: 30px;
   text-align: center;
@@ -97,6 +98,7 @@ p {
   width: 100%;
   z-index: 15;
   box-sizing: border-box;
+  background-color: #000;
 }
 #header .header-nav {
   display: flex;
@@ -277,7 +279,7 @@ p {
 }
 
 /*-------------------------------------------
-メイン：CONSEPTエリア
+メイン：conseptエリア
 -------------------------------------------*/
 .section-content {
   padding: 5em 0 2em;
@@ -340,23 +342,23 @@ p {
 メイン：Worksエリア
 -------------------------------------------*/
 .section-works {
-  background-image: url(img/works-bgi@2x.jpg);
+  background-image: url(../img/works-bgi@2x.jpg);
   background-size: cover;
   background-position: center;
+  padding: 5em 0 2em;
 }
 .section-works .section-title {
   text-align: right;
   color: #fff;
-  margin-bottom: 100px;
 }
 .section-works .section-title::after {
   background-color: #fff;
 }
 .section-works .news-area {
-  padding: 0 27em;
+  padding: 0 10%;
   display: grid;
   gap: 26px;
-  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  grid-template-columns: repeat(3, 1fr);
 }
 @media (max-width: 768px) {
   .section-works .news-area {
@@ -382,76 +384,68 @@ p {
 メイン：Serviceエリア
 -------------------------------------------*/
 .section-service {
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 3rem;
+  padding-top: 3em;
 }
 .section-service .service-area {
-  background-color: #000;
+  background-color: #fff;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
 }
 .section-service .service-area .service-content:hover {
   opacity: 0.5;
-  z-index: 10;
-}
-@media (max-width: 768px) {
-  .section-service .service-area {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  }
-}
-.section-service .img01 .service-title {
-  color: white;
-  position: absolute;
-  bottom: 40%;
-  top: 50%;
-  left: 10%;
-  font-weight: bold;
   z-index: 1;
 }
-@media (max-width: 768px) {
-  .section-service .img01 .service-title {
-    top: 25%;
-    left: 20%;
+.section-service .service-list {
+  display: flex;
+  padding: 0;
+}
+@media (max-width: 900px) {
+  .section-service .service-list {
+    display: block;
   }
 }
-.section-service .img02 .service-title {
-  color: white;
-  position: absolute;
-  top: 50%;
-  bottom: 40%;
-  left: 44%;
+.section-service .service-list .service-item {
+  width: 33.3%;
+}
+@media (max-width: 900px) {
+  .section-service .service-list .service-item {
+    width: 100%;
+    margin: 1em 0;
+  }
+}
+.section-service .service-list .service-item a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  line-height: 320px;
+  font-size: 4rem;
   font-weight: bold;
-  z-index: 1;
+  font-style: italic;
+  transition: 0.3s;
 }
-@media (max-width: 768px) {
-  .section-service .img02 .service-title {
-    left: 20%;
-  }
+.section-service .service-list .service-item a:hover {
+  background-color: rgba(40, 47, 53, 0.7);
+  transition: 0.3s;
 }
-.section-service .img03 .service-title {
-  color: white;
-  position: absolute;
-  top: 50%;
-  bottom: 40%;
-  left: 80%;
-  font-weight: bold;
-  z-index: 1;
+.section-service .service-list .service_1 {
+  background-image: url(../img/service-img01@2x.jpg);
 }
-@media (max-width: 768px) {
-  .section-service .img03 .service-title {
-    top: 75%;
-    left: 20%;
-  }
+.section-service .service-list .service_2 {
+  background-image: url(../img/service-img02@2x.jpg);
+}
+.section-service .service-list .service_3 {
+  background-image: url(../img/service-img03@2x.jpg);
 }
 
 /*-------------------------------------------
 メイン：Contactエリア
 -------------------------------------------*/
 .section-contact {
-  background-image: url(img/contact-bgi@2x.jpg);
+  background-image: url(../img/contact-bgi@2x.jpg);
   padding: 2em;
+  padding: 5em 0 2em;
 }
 .section-contact .section-title {
   text-align: right;
@@ -482,3 +476,5 @@ p {
   padding: 2em;
   text-align: center;
 }
+
+/*# sourceMappingURL=style.css.map */

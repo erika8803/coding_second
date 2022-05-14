@@ -33,24 +33,29 @@ $(function(){
   var mySwiper = new Swiper('.swiper-container', {
     loop: true,
     autoplay: true,
-    // disableOnInteract  ion: true,
     autoplaySpeed: 2000,
     speed: 1000,
     fade: true,
-    // transform:unset!important,
-    // cssEase: 'linear',
   });
 
 
   /*-------------------------------------------
 　　メニュー固定設定
   -------------------------------------------*/
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 100) {
-      $('#header').addClass('fixed');
-    } else {
-      $('#header').removeClass('fixed');
+const observer = new IntersectionObserver((entries) => {
+  // entriesは監視対象すべてが入っているリスト  
+  for(const e of entries) {
+     // isIntersecting プロパティは交差しているかどうかの真偽値
+     // viewport に交差し、入ったときに isIntersecting === true、出たときに false になる
+     if(e.isIntersecting) {
+       document.getElementById('header').style.position = 'absolute';
+     } else {
+       document.getElementById('header').style.position = 'fixed';
+     }
     }
-  });
+ });
 
+ // observe メソッドに監視対象要素を引数として渡すことで監視されるようになります
+ observer.observe(document.getElementById('page-header'))
+  
 });
