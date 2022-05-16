@@ -10,7 +10,7 @@
     width: 100%;
     z-index: 15;
     box-sizing: border-box;
-    background-color: #000;
+    // background-color: #000;
     a {
       color: white;
     }
@@ -35,12 +35,5 @@
 }
 .top-title {
     font-size: 2.6rem;
-}
-.fixed {
-    position: fixed;
-    background-color: #282f35;
-    padding: 30px;
-    width: 100%;
-    transition: 0.3s;
 }
 

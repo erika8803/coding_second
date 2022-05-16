@@ -42,20 +42,21 @@ $(function(){
   /*-------------------------------------------
 　　メニュー固定設定
   -------------------------------------------*/
-const observer = new IntersectionObserver((entries) => {
-  // entriesは監視対象すべてが入っているリスト  
-  for(const e of entries) {
-     // isIntersecting プロパティは交差しているかどうかの真偽値
-     // viewport に交差し、入ったときに isIntersecting === true、出たときに false になる
-     if(e.isIntersecting) {
-       document.getElementById('header').style.position = 'absolute';
-     } else {
-       document.getElementById('header').style.position = 'fixed';
-     }
-    }
- });
+  const observer = new IntersectionObserver((entries) => {
+    // entriesは監視対象すべてが入っているリスト  
+    for(const e of entries) {
+      if(e.isIntersecting) {
+        document.getElementById('header').style.position = 'absolute';
+        document.getElementById('header').style.background = 'none';
 
- // observe メソッドに監視対象要素を引数として渡すことで監視されるようになります
- observer.observe(document.getElementById('page-header'))
-  
+      } else {
+        document.getElementById('header').style.position = 'fixed';
+        document.getElementById('header').style.background = '#333';
+      }
+    }
+  });
+
+  // observe メソッドに監視対象要素を引数として渡すことで監視
+  observer.observe(document.getElementById('page-header'))
+    
 });
